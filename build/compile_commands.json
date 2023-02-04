@@ -1,0 +1,20 @@
+[
+{
+  "directory": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\Chip8Emulator.dir\\main.cpp.obj -c \"C:\\Users\\Merlin\\Documents\\Emulateur v0.1\\emulateur-nul\\main.cpp\"",
+  "file": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/main.cpp",
+  "output": "CMakeFiles/Chip8Emulator.dir/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\Chip8Emulator.dir\\Memory\\Memory.cpp.obj -c \"C:\\Users\\Merlin\\Documents\\Emulateur v0.1\\emulateur-nul\\Memory\\Memory.cpp\"",
+  "file": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Memory/Memory.cpp",
+  "output": "CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj"
+},
+{
+  "directory": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\Chip8Emulator.dir\\Cartridge\\Cartridge.cpp.obj -c \"C:\\Users\\Merlin\\Documents\\Emulateur v0.1\\emulateur-nul\\Cartridge\\Cartridge.cpp\"",
+  "file": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Cartridge/Cartridge.cpp",
+  "output": "CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj"
+}
+]
