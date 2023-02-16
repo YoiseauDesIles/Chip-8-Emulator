@@ -15,7 +15,7 @@ class CPU
         std::stack<uint16_t> stack; 
         uint16_t pc = 0x0200;
         OpCodeTable opCodeTable;
-        std::array<InstructionsEnum, 35> instructions;
+        std::array<EnumInstruction, 35> instructions;
         void initMemory();
         void resetMemory();
         void clock() const;

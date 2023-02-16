@@ -40,7 +40,8 @@
         "iostream": "cpp",
         "ostream": "cpp",
         "stdexcept": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "map": "cpp"
     },
     "cmake.sourceDirectory": "C://Users/Merlin/Documents/Emulateur v0.1/emulateur-nul"
 }

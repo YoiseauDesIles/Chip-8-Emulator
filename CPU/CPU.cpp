@@ -37,7 +37,11 @@ uint16_t const CPU::getNextOpCode()
 
     uint16_t opCode = addBytes(opCodeMsb, opCodeLsb);
 
-    std::cout << "opcode: " << std::hex << opCode << "\n";
+    std::cout << "opcode : " << std::hex << opCode << "\n";
+
+    EnumInstruction instruction = opCodeTable.getInstruction(opCode);
+
+    std::cout << "instruciton : " << instruction << "\n";
     return opCode;
 
 }
