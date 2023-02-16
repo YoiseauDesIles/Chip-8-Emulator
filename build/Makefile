@@ -128,6 +128,30 @@ Chip8Emulator/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/build
 .PHONY : Chip8Emulator/fast
 
+CPU/CPU.obj: CPU/CPU.cpp.obj
+.PHONY : CPU/CPU.obj
+
+# target to build an object file
+CPU/CPU.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.obj
+.PHONY : CPU/CPU.cpp.obj
+
+CPU/CPU.i: CPU/CPU.cpp.i
+.PHONY : CPU/CPU.i
+
+# target to preprocess a source file
+CPU/CPU.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.i
+.PHONY : CPU/CPU.cpp.i
+
+CPU/CPU.s: CPU/CPU.cpp.s
+.PHONY : CPU/CPU.s
+
+# target to generate assembly for a file
+CPU/CPU.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.s
+.PHONY : CPU/CPU.cpp.s
+
 Cartridge/Cartridge.obj: Cartridge/Cartridge.cpp.obj
 .PHONY : Cartridge/Cartridge.obj
 
@@ -176,6 +200,54 @@ Memory/Memory.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.s
 .PHONY : Memory/Memory.cpp.s
 
+OpCodeTable/OpCodeTable.obj: OpCodeTable/OpCodeTable.cpp.obj
+.PHONY : OpCodeTable/OpCodeTable.obj
+
+# target to build an object file
+OpCodeTable/OpCodeTable.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.obj
+.PHONY : OpCodeTable/OpCodeTable.cpp.obj
+
+OpCodeTable/OpCodeTable.i: OpCodeTable/OpCodeTable.cpp.i
+.PHONY : OpCodeTable/OpCodeTable.i
+
+# target to preprocess a source file
+OpCodeTable/OpCodeTable.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.i
+.PHONY : OpCodeTable/OpCodeTable.cpp.i
+
+OpCodeTable/OpCodeTable.s: OpCodeTable/OpCodeTable.cpp.s
+.PHONY : OpCodeTable/OpCodeTable.s
+
+# target to generate assembly for a file
+OpCodeTable/OpCodeTable.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.s
+.PHONY : OpCodeTable/OpCodeTable.cpp.s
+
+Registry/Registry.obj: Registry/Registry.cpp.obj
+.PHONY : Registry/Registry.obj
+
+# target to build an object file
+Registry/Registry.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Registry/Registry.cpp.obj
+.PHONY : Registry/Registry.cpp.obj
+
+Registry/Registry.i: Registry/Registry.cpp.i
+.PHONY : Registry/Registry.i
+
+# target to preprocess a source file
+Registry/Registry.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Registry/Registry.cpp.i
+.PHONY : Registry/Registry.cpp.i
+
+Registry/Registry.s: Registry/Registry.cpp.s
+.PHONY : Registry/Registry.s
+
+# target to generate assembly for a file
+Registry/Registry.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Registry/Registry.cpp.s
+.PHONY : Registry/Registry.cpp.s
+
 main.obj: main.cpp.obj
 .PHONY : main.obj
 
@@ -209,12 +281,21 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... Chip8Emulator
+	@echo ... CPU/CPU.obj
+	@echo ... CPU/CPU.i
+	@echo ... CPU/CPU.s
 	@echo ... Cartridge/Cartridge.obj
 	@echo ... Cartridge/Cartridge.i
 	@echo ... Cartridge/Cartridge.s
 	@echo ... Memory/Memory.obj
 	@echo ... Memory/Memory.i
 	@echo ... Memory/Memory.s
+	@echo ... OpCodeTable/OpCodeTable.obj
+	@echo ... OpCodeTable/OpCodeTable.i
+	@echo ... OpCodeTable/OpCodeTable.s
+	@echo ... Registry/Registry.obj
+	@echo ... Registry/Registry.i
+	@echo ... Registry/Registry.s
 	@echo ... main.obj
 	@echo ... main.i
 	@echo ... main.s

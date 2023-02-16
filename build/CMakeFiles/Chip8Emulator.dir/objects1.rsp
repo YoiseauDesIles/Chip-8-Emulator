@@ -1,1 +1,1 @@
-CMakeFiles/Chip8Emulator.dir/main.cpp.obj CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj
+CMakeFiles/Chip8Emulator.dir/main.cpp.obj CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.obj CMakeFiles/Chip8Emulator.dir/Registry/Registry.cpp.obj CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.obj

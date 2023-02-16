@@ -1,11 +1,15 @@
 #include <iostream>
-#include "Memory/Memory.h"
+#include "CPU/CPU.h"
 
 int main()
 {
-    Memory m = Memory();
-    m.copyCartridge();
 
+    CPU cpu = CPU();
+    cpu.getNextOpCode();
+    // Memory m = Memory();
+    // m.copyCartridge();
+    // m.printRamRange(0x200, 0x203);
+    
     return 0;
     
 }
