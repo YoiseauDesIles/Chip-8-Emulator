@@ -43,5 +43,6 @@
         "typeinfo": "cpp",
         "map": "cpp"
     },
-    "cmake.sourceDirectory": "C://Users/Merlin/Documents/Emulateur v0.1/emulateur-nul"
+    "cmake.sourceDirectory": "C://Users/Merlin/Documents/Emulateur v0.1/emulateur-nul",
+    "sonarlint.pathToCompileCommands": "${workspaceFolder}\\build\\compile_commands.json"
 }

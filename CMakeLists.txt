@@ -8,6 +8,7 @@ set(SRCS
     CPU/CPU.cpp
     Registry/Registry.cpp
     OpCodeTable/OpCodeTable.cpp
+    InstructionProcessor/InstructionProcessor.cpp
     )
     
 set(HEADERS
@@ -16,6 +17,7 @@ set(HEADERS
     CPU/CPU.h
     Registry/Registry.h
     OpCodeTable/OpCodeTable.h
+    InstructionProcessor/InstructionProcessor.h
     )
 
 add_executable(Chip8Emulator ${SRCS} ${HEADERS})

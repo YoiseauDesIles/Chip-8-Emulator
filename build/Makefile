@@ -176,6 +176,30 @@ Cartridge/Cartridge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.s
 .PHONY : Cartridge/Cartridge.cpp.s
 
+InstructionProcessor/InstructionProcessor.obj: InstructionProcessor/InstructionProcessor.cpp.obj
+.PHONY : InstructionProcessor/InstructionProcessor.obj
+
+# target to build an object file
+InstructionProcessor/InstructionProcessor.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj
+.PHONY : InstructionProcessor/InstructionProcessor.cpp.obj
+
+InstructionProcessor/InstructionProcessor.i: InstructionProcessor/InstructionProcessor.cpp.i
+.PHONY : InstructionProcessor/InstructionProcessor.i
+
+# target to preprocess a source file
+InstructionProcessor/InstructionProcessor.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.i
+.PHONY : InstructionProcessor/InstructionProcessor.cpp.i
+
+InstructionProcessor/InstructionProcessor.s: InstructionProcessor/InstructionProcessor.cpp.s
+.PHONY : InstructionProcessor/InstructionProcessor.s
+
+# target to generate assembly for a file
+InstructionProcessor/InstructionProcessor.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.s
+.PHONY : InstructionProcessor/InstructionProcessor.cpp.s
+
 Memory/Memory.obj: Memory/Memory.cpp.obj
 .PHONY : Memory/Memory.obj
 
@@ -287,6 +311,9 @@ help:
 	@echo ... Cartridge/Cartridge.obj
 	@echo ... Cartridge/Cartridge.i
 	@echo ... Cartridge/Cartridge.s
+	@echo ... InstructionProcessor/InstructionProcessor.obj
+	@echo ... InstructionProcessor/InstructionProcessor.i
+	@echo ... InstructionProcessor/InstructionProcessor.s
 	@echo ... Memory/Memory.obj
 	@echo ... Memory/Memory.i
 	@echo ... Memory/Memory.s

@@ -6,6 +6,7 @@
 #include "../Registry/Registry.h"
 #include "../OpCodeTable/OpCodeTable.h"
 #include "../Clock/Clock.h"
+#include "../InstructionProcessor/InstructionProcessor.h"
 
 class CPU
 {
@@ -15,16 +16,23 @@ class CPU
         std::stack<uint16_t> stack; 
         uint16_t pc = 0x0200;
         OpCodeTable opCodeTable;
-        std::array<EnumInstruction, 35> instructions;
+        // Déclaration du pointeur sur fonction (qui pointe vers une fonction de InstructionProcessor)
+        typedef void (InstructionProcessor::*nomPtr)(uint16_t);
+        std::array<nomPtr, 35> instructionSet;
+        InstructionProcessor instructionProcessor;
+
         void initMemory();
+        void initInstructionSet();
         void resetMemory();
         void clock() const;
-        bool processInstruction();
+        void processInstruction(uint16_t opCode, EnumInstruction instruction) ;
+        uint16_t byteShiftLeft(uint8_t const &data) ;
+        uint16_t addBytes(uint8_t const &msb, uint8_t const &lsb) ;
+        uint16_t getNextOpCode();
 
     public:
         CPU();
         virtual ~CPU();
-        uint16_t const byteShiftLeft(uint8_t const &data) const;
-        uint16_t const addBytes(uint8_t const &msb, uint8_t const &lsb) const;
-        uint16_t const getNextOpCode();
+
+        void process() ;
 };

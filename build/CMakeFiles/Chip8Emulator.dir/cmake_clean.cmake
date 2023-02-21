@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.obj.d"
   "CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj"
   "CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj.d"
+  "CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj"
+  "CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj.d"
   "CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj"
   "CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj.d"
   "CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.obj"
