@@ -5,10 +5,10 @@ CPU::CPU()
     memory = Memory();
     registry = Registry();
     opCodeTable = OpCodeTable();
-    instructionProcessor = InstructionProcessor();
-
     initMemory();
     initInstructionSet();
+
+    stack.emplace(0x1234);
     //TODO Initialiser le tableau de pointeur d'instructions
 }
 
@@ -26,42 +26,43 @@ void CPU::initInstructionSet()
 {
       instructionSet =
           {
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test,// 0x46
-            &InstructionProcessor::test// 0x46
-          };
+        &InstructionProcessor::instr0NNN,
+        &InstructionProcessor::instr00E0,
+        &InstructionProcessor::instr00EE,
+        &InstructionProcessor::instr1NNN,
+        &InstructionProcessor::instr2NNN,
+        &InstructionProcessor::instr3XNN,
+        &InstructionProcessor::instr4XNN,
+        &InstructionProcessor::instr5XY0,
+        &InstructionProcessor::instr6XNN,
+        &InstructionProcessor::instr7XNN,
+        &InstructionProcessor::instr8XY0,
+        &InstructionProcessor::instr8XY1,
+        &InstructionProcessor::instr8XY2,
+        &InstructionProcessor::instr8XY3,
+        &InstructionProcessor::instr8XY4,
+        &InstructionProcessor::instr8XY5,
+        &InstructionProcessor::instr8XY6,
+        &InstructionProcessor::instr8XY7,
+        &InstructionProcessor::instr8XYE,
+        &InstructionProcessor::instr9XY0,
+        &InstructionProcessor::instrANNN,
+        &InstructionProcessor::instrBNNN,
+        &InstructionProcessor::instrCXNN,
+        &InstructionProcessor::instrDXYN,
+        &InstructionProcessor::instrEX9E,
+        &InstructionProcessor::instrEXA1,
+        &InstructionProcessor::instrFX07,
+        &InstructionProcessor::instrFX0A,
+        &InstructionProcessor::instrFX15,
+        &InstructionProcessor::instrFX18,
+        &InstructionProcessor::instrFX1E,
+        &InstructionProcessor::instrFX29,
+        &InstructionProcessor::instrFX33,
+        &InstructionProcessor::instrFX55,
+        &InstructionProcessor::instrFX65
+
+        };
 
 
 }
@@ -106,13 +107,16 @@ uint16_t CPU::byteShiftLeft(uint8_t const &data)
 void CPU::processInstruction(uint16_t opcode, EnumInstruction instruction) 
 {
     // *instructionSet[1] : fonction qui est dans instructionProcessor
-    (instructionProcessor.*instructionSet[instruction])(opcode);
+    // (instructionProcessor.*instructionSet[instruction])(opcode);
+    (instructionSet[instruction])(*this, opcode);
 
 }
 
 void CPU::process() 
 {
     uint16_t opcode = getNextOpCode();
+
+    std::cout << "Process - opcode : " << std::hex << opcode+0 << "\n";
 
     EnumInstruction instruction = opCodeTable.getInstruction(opcode);  
 

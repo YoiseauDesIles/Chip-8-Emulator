@@ -7,6 +7,10 @@ int main()
 
     CPU cpu = CPU();
     cpu.process();
+    cpu.process();
+    cpu.process();
+    cpu.process();
+    cpu.process();
 
     // Memory m = Memory();
     // m.copyCartridge();

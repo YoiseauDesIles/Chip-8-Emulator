@@ -50,7 +50,8 @@ EnumInstruction OpCodeTable::getInstruction(uint16_t opcode) const
     uint8_t index = 0;
     for (auto const &i : maskList){
         auto a = ((i.first & opcode));
-        if (i.first & opcode == i.second)
+        bool b = (i.first & opcode) == i.second;
+        if (b)
             return EnumInstruction(index);
         index++;
     }

@@ -41,7 +41,8 @@
         "ostream": "cpp",
         "stdexcept": "cpp",
         "typeinfo": "cpp",
-        "map": "cpp"
+        "map": "cpp",
+        "list": "cpp"
     },
     "cmake.sourceDirectory": "C://Users/Merlin/Documents/Emulateur v0.1/emulateur-nul",
     "sonarlint.pathToCompileCommands": "${workspaceFolder}\\build\\compile_commands.json"

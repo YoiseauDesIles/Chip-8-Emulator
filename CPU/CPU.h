@@ -14,12 +14,13 @@ class CPU
         Memory memory;
         Registry registry;
         std::stack<uint16_t> stack; 
-        uint16_t pc = 0x0200;
+        uint16_t pc = 0x0200;   
         OpCodeTable opCodeTable;
         // Déclaration du pointeur sur fonction (qui pointe vers une fonction de InstructionProcessor)
-        typedef void (InstructionProcessor::*nomPtr)(uint16_t);
-        std::array<nomPtr, 35> instructionSet;
-        InstructionProcessor instructionProcessor;
+        // typedef void (InstructionProcessor::*nomPtr)(uint16_t);
+        typedef void (*Instruction)(CPU&, uint16_t);
+        std::array<Instruction, 35> instructionSet;
+
 
         void initMemory();
         void initInstructionSet();
@@ -35,4 +36,13 @@ class CPU
         virtual ~CPU();
 
         void process() ;
+
+        std::stack<uint16_t> & getStack() { return stack; }
+        uint16_t & getPc() { return pc; }
+                
+        void setPc(uint16_t pc) { this->pc = pc; }
+
+        void printStackTop() { std::cout << "stack top " << stack.top() << "\n"; }
+
+
 };
