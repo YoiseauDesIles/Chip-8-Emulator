@@ -6,11 +6,14 @@ int main()
 {
 
     CPU cpu = CPU();
-    cpu.process();
-    cpu.process();
-    cpu.process();
-    cpu.process();
-    cpu.process();
+    for (int i  = 0; i < 10; i++){
+        cpu.process();
+        cpu.process();
+        cpu.process();
+        cpu.process();
+        cpu.process();
+    }
+    
 
     // Memory m = Memory();
     // m.copyCartridge();

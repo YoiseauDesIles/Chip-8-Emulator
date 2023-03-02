@@ -39,6 +39,7 @@ class CPU
 
         std::stack<uint16_t> & getStack() { return stack; }
         uint16_t & getPc() { return pc; }
+        Registry & getRegistry() { return registry; }
                 
         void setPc(uint16_t pc) { this->pc = pc; }
 
