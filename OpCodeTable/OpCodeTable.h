@@ -5,7 +5,7 @@
 #include <array>
 
 enum EnumInstruction {
-    ERROR = -1,
+    ERRORS = -1,
     RCA1802_NNN = 0, 
     CLEAR_S = 1,
     RETURN,

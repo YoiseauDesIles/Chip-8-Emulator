@@ -40,5 +40,11 @@
   "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\Chip8Emulator.dir\\InstructionProcessor\\InstructionProcessor.cpp.obj -c \"C:\\Users\\Merlin\\Documents\\Emulateur v0.1\\emulateur-nul\\InstructionProcessor\\InstructionProcessor.cpp\"",
   "file": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/InstructionProcessor/InstructionProcessor.cpp",
   "output": "CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj"
+},
+{
+  "directory": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/build",
+  "command": "C:\\MinGW\\bin\\g++.exe   -g -o CMakeFiles\\Chip8Emulator.dir\\Clock\\Clock.cpp.obj -c \"C:\\Users\\Merlin\\Documents\\Emulateur v0.1\\emulateur-nul\\Clock\\Clock.cpp\"",
+  "file": "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Clock/Clock.cpp",
+  "output": "CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.obj"
 }
 ]

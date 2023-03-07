@@ -67,8 +67,9 @@ void CPU::initInstructionSet()
 
 }
 
-void CPU::clock() const
+void CPU::clock(Clock & clock) const
 {
+    clock.decreaseCycle();
     // Clock* clock = Clock::GetInstance();
     // uint8_t cycleState = clock->getCycleState();
     // clock->setCycleState(--cycleState);
@@ -122,4 +123,16 @@ void CPU::process()
 
     processInstruction(opcode, instruction);  
 
+}
+
+void CPU::handleClockCycles(Clock & clock)
+{
+    while (clock.getCycle() > 0) 
+    {
+        Sleep(4);
+        clock.decreaseCycle();
+    }
+
+    std::cout << " Fin du cycle d'horloge, declenchement de l'instruction suivante" << "\n";
+    process();
 }

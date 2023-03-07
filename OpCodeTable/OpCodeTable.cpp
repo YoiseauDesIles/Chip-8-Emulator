@@ -56,5 +56,5 @@ EnumInstruction OpCodeTable::getInstruction(uint16_t opcode) const
         index++;
     }
     
-    return EnumInstruction::ERROR;
+    return EnumInstruction::ERRORS;
 }

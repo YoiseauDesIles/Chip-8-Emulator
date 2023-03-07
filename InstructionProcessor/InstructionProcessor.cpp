@@ -475,8 +475,31 @@ void InstructionProcessor::instrFX29(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX33(CPU &cpu, uint16_t opcode) 
 {
+   // Stocke dans la mémoire le code décimal représentant VX (I, I+1, I+2)
 
-}
+   std::cout << "Instruction FX33 " << "\n";
+
+   uint8_t X = getHexChar(opcode, 2);
+
+   uint8_t number = cpu.getRegistry().getRegistry(X);
+
+   uint8_t hundreds = number / 100;
+   uint8_t tens = (number % 100) / 10;
+   uint8_t units = (number % 100) % 10;
+
+   uint16_t I = cpu.getRegistry().getI();
+
+   cpu.getMemory().write(I, hundreds);
+   cpu.getMemory().write(I+1, tens);
+   cpu.getMemory().write(I+2, units);
+
+   uint16_t I1 = I+1;
+   uint16_t I2 = I+2;
+   std::cout << "Instruction FX55 - mémoire à l'adresse I à I+2 (I = " << std::hex << I+0 << ") : " << 
+   std::hex << cpu.getMemory().read(I)+0 << 
+   std::hex << cpu.getMemory().read(I1)+0 << 
+   std::hex << cpu.getMemory().read(I2)+0 << "\n";
+} 
 
 void InstructionProcessor::instrFX55(CPU &cpu, uint16_t opcode) 
 {
@@ -484,7 +507,18 @@ void InstructionProcessor::instrFX55(CPU &cpu, uint16_t opcode)
 
    std::cout << "Instruction FX55 " << "\n";
 
+   uint8_t X = getHexChar(opcode, 2);
+   uint16_t iRegistry = cpu.getRegistry().getI();
    
+   for (uint16_t i=0; i<=X; i++) 
+   {
+      uint8_t currRegistry = cpu.getRegistry().getRegistry(i);
+      uint16_t iAddress = iRegistry + i;
+      cpu.getMemory().write(iAddress, currRegistry);
+
+      std::cout << "Instruction FX55 - mémoire à l'adresse " << std::hex << iAddress+0 << " : " << std::hex << cpu.getMemory().read(iAddress)+0 << "\n";
+   }
+
 
 }
 
@@ -493,5 +527,17 @@ void InstructionProcessor::instrFX65(CPU &cpu, uint16_t opcode)
    // Remplit V0 à VX avec les valeurs de la mémoire à partir de l'adresse I.
 
    std::cout << "Instruction FX65 " << "\n";
+
+   uint8_t X = getHexChar(opcode, 2);
+   uint16_t iRegistry = cpu.getRegistry().getI();
+   
+   for (uint16_t i=0; i<=X; i++) 
+   {
+      uint16_t iAddress = iRegistry + i;
+      uint8_t data = cpu.getMemory().read(iAddress);
+      cpu.getRegistry().setRegistry(i, data);
+      
+      std::cout << "Instruction FX65 - valeur du registre " << std::hex << i+0 << " : " << std::hex << cpu.getRegistry().getRegistry(i)+0 << "\n";
+   }
 
 }

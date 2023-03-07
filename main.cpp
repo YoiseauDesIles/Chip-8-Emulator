@@ -6,12 +6,9 @@ int main()
 {
 
     CPU cpu = CPU();
+    Clock clock = Clock();
     for (int i  = 0; i < 10; i++){
-        cpu.process();
-        cpu.process();
-        cpu.process();
-        cpu.process();
-        cpu.process();
+        cpu.handleClockCycles(clock);
     }
     
 

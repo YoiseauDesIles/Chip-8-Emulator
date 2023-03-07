@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/CPU/CPU.cpp" "CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/CPU/CPU.cpp.obj.d"
   "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Cartridge/Cartridge.cpp" "CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.obj.d"
+  "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Clock/Clock.cpp" "CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.obj.d"
   "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/InstructionProcessor/InstructionProcessor.cpp" "CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/InstructionProcessor/InstructionProcessor.cpp.obj.d"
   "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/Memory/Memory.cpp" "CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/Memory/Memory.cpp.obj.d"
   "C:/Users/Merlin/Documents/Emulateur v0.1/emulateur-nul/OpCodeTable/OpCodeTable.cpp" "CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.obj" "gcc" "CMakeFiles/Chip8Emulator.dir/OpCodeTable/OpCodeTable.cpp.obj.d"

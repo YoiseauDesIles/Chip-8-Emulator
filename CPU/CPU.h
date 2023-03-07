@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <stack>
+#include <windows.h>
 #include "../Memory/Memory.h"
 #include "../Registry/Registry.h"
 #include "../OpCodeTable/OpCodeTable.h"
@@ -25,11 +26,12 @@ class CPU
         void initMemory();
         void initInstructionSet();
         void resetMemory();
-        void clock() const;
+        void clock(Clock & clock) const;
         void processInstruction(uint16_t opCode, EnumInstruction instruction) ;
         uint16_t byteShiftLeft(uint8_t const &data) ;
         uint16_t addBytes(uint8_t const &msb, uint8_t const &lsb) ;
         uint16_t getNextOpCode();
+        
 
     public:
         CPU();
@@ -45,5 +47,8 @@ class CPU
 
         void printStackTop() { std::cout << "stack top " << stack.top() << "\n"; }
 
+        Memory & getMemory() { return memory; }
 
+        void handleClockCycles(Clock & clock);
+        
 };

@@ -176,6 +176,30 @@ Cartridge/Cartridge.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Cartridge/Cartridge.cpp.s
 .PHONY : Cartridge/Cartridge.cpp.s
 
+Clock/Clock.obj: Clock/Clock.cpp.obj
+.PHONY : Clock/Clock.obj
+
+# target to build an object file
+Clock/Clock.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.obj
+.PHONY : Clock/Clock.cpp.obj
+
+Clock/Clock.i: Clock/Clock.cpp.i
+.PHONY : Clock/Clock.i
+
+# target to preprocess a source file
+Clock/Clock.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.i
+.PHONY : Clock/Clock.cpp.i
+
+Clock/Clock.s: Clock/Clock.cpp.s
+.PHONY : Clock/Clock.s
+
+# target to generate assembly for a file
+Clock/Clock.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\Chip8Emulator.dir\build.make CMakeFiles/Chip8Emulator.dir/Clock/Clock.cpp.s
+.PHONY : Clock/Clock.cpp.s
+
 InstructionProcessor/InstructionProcessor.obj: InstructionProcessor/InstructionProcessor.cpp.obj
 .PHONY : InstructionProcessor/InstructionProcessor.obj
 
@@ -311,6 +335,9 @@ help:
 	@echo ... Cartridge/Cartridge.obj
 	@echo ... Cartridge/Cartridge.i
 	@echo ... Cartridge/Cartridge.s
+	@echo ... Clock/Clock.obj
+	@echo ... Clock/Clock.i
+	@echo ... Clock/Clock.s
 	@echo ... InstructionProcessor/InstructionProcessor.obj
 	@echo ... InstructionProcessor/InstructionProcessor.i
 	@echo ... InstructionProcessor/InstructionProcessor.s

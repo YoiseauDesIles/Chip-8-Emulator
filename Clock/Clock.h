@@ -1,39 +1,15 @@
-#pragma once
 #include <iostream>
 
 class Clock 
 {
-    protected:
+    public :
+        Clock();
+        virtual ~Clock() = default;
 
-        static uint8_t cycleState;
-        static Clock* clock;
+        void decreaseCycle();
+        uint8_t getCycle() { return currentCycle; }
+        void setCycle(uint8_t cycle) { currentCycle = cycle; }   
 
-        Clock() { cycleState = 0; }
-
-    public:
-
-        /**
-        * Singletons should not be cloneable.
-        */
-        Clock(Clock &other) = delete;
-        /**
-        * Singletons should not be assignable.
-        */
-        void operator=(const Clock &) = delete;
-        /**
-        * This is the static method that controls the access to the singleton
-        * instance. On the first run, it creates a singleton object and places it
-        * into the static field. On subsequent runs, it returns the client existing
-        * object stored in the static field.
-        */
-
-        static Clock *GetInstance();
-        /**
-        * Finally, any singleton should define some business logic, which can be
-        * executed on its instance.
-        */
-
-        static uint8_t getCycleState() { return cycleState; }
-        static void setCycleState(uint8_t cycleState) { cycleState = cycleState; }
-
+    private :
+        uint8_t currentCycle;
 };
