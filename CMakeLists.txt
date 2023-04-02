@@ -10,6 +10,8 @@ set(SRCS
     OpCodeTable/OpCodeTable.cpp
     InstructionProcessor/InstructionProcessor.cpp
     Clock/Clock.cpp
+    Controller/Controller.cpp
+    GameScheduler/GameScheduler.cpp
     )
     
 set(HEADERS
@@ -20,6 +22,8 @@ set(HEADERS
     OpCodeTable/OpCodeTable.h
     InstructionProcessor/InstructionProcessor.h
     Clock/Clock.h
+    Controller/Controller.h
+    GameScheduler/GameScheduler.h
     )
 
 #set(CMAKE_BUILD_TYPE Debug)

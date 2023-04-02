@@ -8,6 +8,7 @@
 #include "../OpCodeTable/OpCodeTable.h"
 #include "../Clock/Clock.h"
 #include "../InstructionProcessor/InstructionProcessor.h"
+#include "../Controller/Controller.h"
 
 class CPU
 {
@@ -21,12 +22,13 @@ class CPU
         // typedef void (InstructionProcessor::*nomPtr)(uint16_t);
         typedef void (*Instruction)(CPU&, uint16_t);
         std::array<Instruction, 35> instructionSet;
+        std::array<uint8_t, 16> keys;
 
 
         void initMemory();
         void initInstructionSet();
         void resetMemory();
-        void clock(Clock & clock) const;
+        //void clock(Clock & clock) const;
         void processInstruction(uint16_t opCode, EnumInstruction instruction) ;
         uint16_t byteShiftLeft(uint8_t const &data) ;
         uint16_t addBytes(uint8_t const &msb, uint8_t const &lsb) ;
@@ -49,6 +51,10 @@ class CPU
 
         Memory & getMemory() { return memory; }
 
-        void handleClockCycles(Clock & clock);
+        //void handleClockCycles(Clock & clock);
+
+        void updateKeys(Controller &controller);
+
+        void waitForKeys();
         
 };

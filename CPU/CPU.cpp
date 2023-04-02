@@ -67,13 +67,13 @@ void CPU::initInstructionSet()
 
 }
 
-void CPU::clock(Clock & clock) const
-{
-    clock.decreaseCycle();
-    // Clock* clock = Clock::GetInstance();
-    // uint8_t cycleState = clock->getCycleState();
-    // clock->setCycleState(--cycleState);
-}
+// void CPU::clock(Clock & clock) const
+// {
+//     clock.decreaseCycle();
+//     // Clock* clock = Clock::GetInstance();
+//     // uint8_t cycleState = clock->getCycleState();
+//     // clock->setCycleState(--cycleState);
+// }
 
 uint16_t CPU::getNextOpCode() 
 {
@@ -125,14 +125,25 @@ void CPU::process()
 
 }
 
-void CPU::handleClockCycles(Clock & clock)
+void CPU::updateKeys(Controller &controller)
 {
-    while (clock.getCycle() > 0) 
-    {
-        Sleep(4);
-        clock.decreaseCycle();
-    }
-
-    std::cout << " Fin du cycle d'horloge, declenchement de l'instruction suivante" << "\n";
-    process();
+    controller.updateInputState(keys);
+    
 }
+
+void CPU::waitForKeys()
+{
+    // controller.waitForInput();
+}
+
+// void CPU::handleClockCycles(Clock & clock)
+// {
+//     while (clock.getCycle() > 0) 
+//     {
+//         Sleep(4);
+//         clock.decreaseCycle();
+//     }
+
+//     std::cout << " Fin du cycle d'horloge, declenchement de l'instruction suivante" << "\n";
+//     process();
+// }
