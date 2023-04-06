@@ -7,8 +7,13 @@ CPU::CPU()
     opCodeTable = OpCodeTable();
     initMemory();
     initInstructionSet();
-
+    controller = Controller();
     stack.emplace(0x1234);
+
+    // Initialise le tableau de keys à 0
+    for (auto &i : keys) 
+        i = 0x00;
+        
     //TODO Initialiser le tableau de pointeur d'instructions
 }
 
@@ -77,12 +82,17 @@ void CPU::initInstructionSet()
 
 uint16_t CPU::getNextOpCode() 
 {
+
+    std::cout << "get next opcode - pc = " << pc << "\n";
     uint8_t opCodeMsb = memory.read(pc);
     pc++;
+    std::cout << "get next opcode - pc = " << pc << "\n";
     uint8_t opCodeLsb = memory.read(pc);
     pc++;
+    std::cout << "get next opcode - pc = " << pc << "\n";
 
     uint16_t opCode = addBytes(opCodeMsb, opCodeLsb);
+
 
     // std::cout << "opcode : " << std::hex << opCode << "\n";
 
@@ -115,8 +125,10 @@ void CPU::processInstruction(uint16_t opcode, EnumInstruction instruction)
 
 void CPU::process() 
 {
+    std::cout << "process \n";
     uint16_t opcode = getNextOpCode();
 
+    std::cout << "opcode = " << opcode << "\n";
     std::cout << "Process - opcode : " << std::hex << opcode+0 << "\n";
 
     EnumInstruction instruction = opCodeTable.getInstruction(opcode);  
@@ -125,15 +137,16 @@ void CPU::process()
 
 }
 
-void CPU::updateKeys(Controller &controller)
+void CPU::updateKeys()
 {
+    
     controller.updateInputState(keys);
     
 }
 
-void CPU::waitForKeys()
+uint8_t CPU::waitForKeys( uint8_t XRegistry)
 {
-    // controller.waitForInput();
+    controller.waitForInput(registry, keys, XRegistry);
 }
 
 // void CPU::handleClockCycles(Clock & clock)

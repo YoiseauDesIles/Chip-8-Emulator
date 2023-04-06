@@ -1,28 +1,38 @@
 #include "GameScheduler.h"
 
-GameScheduler::GameScheduler(CPU& cpu, Controller &controller) : cpu(cpu), controller(controller), gameScreenCnt(0), continueGame(1)
+GameScheduler::GameScheduler(CPU& cpu) : cpu(cpu), gameScreenCnt(0), continueGame(1)
 {
     std::cout << "game scheduler initialized" << "\n";
 }
 
 void GameScheduler::startGame()
 {
-    do 
+    try 
     {
-        //cpu.process();
-        gameScreenCnt++;
+        do 
+            {
+                cpu.process();
+                gameScreenCnt++;
 
-        if (gameScreenCnt == 4)
-        {
-            cpu.updateKeys(controller);
-            //gameScreen.update();
-            
-            gameScreenCnt = 0;
-        }
+                if (gameScreenCnt == 4)
+                {
+                    std::cout << "Avant updateKeys : " << cpu.getContinueGame()+0 << "\n";
+                    cpu.updateKeys();
+                    std::cout << "Apres updateKays : " << cpu.getContinueGame()+0 << "\n";
+                    //gameScreen.update();
+                    
+                    gameScreenCnt = 0;
+                }
 
-        //continueGame = cpu.getKey() == QUIT;
-        Sleep(4);
+                //continueGame = cpu.getKey() == QUIT;
+                Sleep(1000);
+                std::cout << "continue game : " << cpu.getContinueGame()+0 << "\n";
+        } while (cpu.getContinueGame() == 1);
 
-    } while (continueGame);
+    } catch (const std::exception &e)
+    {
+        std::cout << e.what() << "\n";
+    }
+    
 
 }

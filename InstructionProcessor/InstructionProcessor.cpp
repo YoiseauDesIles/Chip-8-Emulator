@@ -40,6 +40,7 @@ void InstructionProcessor::instr00EE(CPU &cpu, uint16_t opcode)
 void InstructionProcessor::instr1NNN(CPU &cpu, uint16_t opcode) 
 {
    // Saut à l'adresse NNN
+   try {
 
    uint8_t N0 = getHexChar(opcode, 0);
    uint8_t N1 = getHexChar(opcode, 1);
@@ -47,9 +48,18 @@ void InstructionProcessor::instr1NNN(CPU &cpu, uint16_t opcode)
 
    uint16_t address = (N2 << 8) + (N1 << 4) + N0;
    
+   
    std::cout << "Instruction 1NNN - address = " << std::hex << address+0 << "\n";
 
    cpu.setPc(address);
+
+   std::cout << "pc = " << std::hex <<cpu.getPc()+0 << "\n"; 
+   } catch (std::exception& e)
+   {
+      std::cout << "exception 1NNN \n";
+      std::cout << e.what();
+   }
+   
 }
 
 void InstructionProcessor::instr2NNN(CPU &cpu, uint16_t opcode) 
@@ -418,12 +428,33 @@ void InstructionProcessor::instrDXYN(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrEX9E(CPU &cpu, uint16_t opcode) 
 {
+   // Saute l'instruction suivante si la touche stockée dans VX est pressée
+
+   uint8_t X = getHexChar(opcode, 2);
+
+   uint8_t key = cpu.getRegistry().getRegistry(X);
+
+   if (cpu.getKeys()[key] == 1) 
+      cpu.setPc(cpu.getPc()+2);
+   
+      
+
+   std::cout << "Instruction EX9E - valeur de la touche " << std::hex << key+0 << " : " << std::hex << cpu.getKeys()[key]+0 << "\n";
 
 }
 
 void InstructionProcessor::instrEXA1(CPU &cpu, uint16_t opcode) 
 {
+   // Saute l'instruction suivante si la touche stockée dans VX n'est pas pressée
 
+   uint8_t X = getHexChar(opcode, 2);
+
+   uint8_t key = cpu.getRegistry().getRegistry(X);
+
+   if (cpu.getKeys()[key] == 0) 
+      cpu.setPc(cpu.getPc()+2);
+ 
+   std::cout << "Instruction EXA1 - valeur de la touche " << std::hex << key+0 << " : " << std::hex << cpu.getKeys()[key]+0 << "\n";
 }
 
 void InstructionProcessor::instrFX07(CPU &cpu, uint16_t opcode) 
@@ -433,6 +464,21 @@ void InstructionProcessor::instrFX07(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX0A(CPU &cpu, uint16_t opcode) 
 {
+   // L'appui sur une touche est attendu, puis stocké dans VX
+
+   std::cout << "FX0A\n";
+   uint8_t X = getHexChar(opcode, 2);
+
+   std::cout << "FX0A 2\n";
+   uint8_t continueGame = cpu.waitForKeys(X);
+
+   std::cout << "FX0A 3\n";
+   if (continueGame == 0)
+      cpu.setContinueGame(0);
+
+   std::cout << "FX0A 4\n";
+   std::cout << "Instruction FX0A - valeur du registre " << std::hex << X+0 << " : " << std::hex << cpu.getRegistry().getRegistry(X)+0 << "\n";
+
 
 }
 

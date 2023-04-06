@@ -12,12 +12,11 @@ class GameScheduler
         uint8_t continueGame;
         uint8_t gameScreenCnt;
         CPU& cpu;
-        Controller& controller;
         // GameScreen& gameScreen;
         // GameSound& gameSound;
 
     public:
-        GameScheduler(CPU& cpu, Controller& controller);
+        GameScheduler(CPU& cpu);
         virtual ~GameScheduler() = default;
 
         void startGame();

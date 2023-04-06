@@ -25,8 +25,7 @@ int main(int argc, char **argv){
                                                                   480,
                                                                   SDL_WINDOW_SHOWN);
         CPU cpu = CPU();
-        Controller controller = Controller();
-        GameScheduler gameScheduler = GameScheduler(cpu, controller);
+        GameScheduler gameScheduler = GameScheduler(cpu);
         gameScheduler.startGame();
 
         // if( pWindow )

@@ -23,7 +23,9 @@ class CPU
         typedef void (*Instruction)(CPU&, uint16_t);
         std::array<Instruction, 35> instructionSet;
         std::array<uint8_t, 16> keys;
+        Controller controller;
 
+        uint8_t continueGame = 1;
 
         void initMemory();
         void initInstructionSet();
@@ -33,6 +35,7 @@ class CPU
         uint16_t byteShiftLeft(uint8_t const &data) ;
         uint16_t addBytes(uint8_t const &msb, uint8_t const &lsb) ;
         uint16_t getNextOpCode();
+        
         
 
     public:
@@ -51,10 +54,14 @@ class CPU
 
         Memory & getMemory() { return memory; }
 
+        std::array<uint8_t, 16> getKeys() const { return keys; }
+
+        void setContinueGame(uint8_t continueGame) { continueGame = continueGame; }
+        uint8_t getContinueGame() { return continueGame; }
         //void handleClockCycles(Clock & clock);
 
-        void updateKeys(Controller &controller);
+        void updateKeys();
 
-        void waitForKeys();
+        uint8_t waitForKeys(uint8_t XRegistry);
         
 };
