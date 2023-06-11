@@ -11,6 +11,8 @@ class InstructionProcessor
 {
     private:
         static uint8_t getHexChar(uint16_t opcode, uint8_t position);
+        static uint8_t getBit(uint8_t byte, uint8_t position);
+        static uint8_t getBitReversed(uint8_t byte, uint8_t position);
         InstructionProcessor() {};
         //InstructionProcessor(CPU* cpu);
         virtual ~InstructionProcessor() = default;

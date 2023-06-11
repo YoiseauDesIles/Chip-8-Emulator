@@ -68,5 +68,10 @@ class CPU
         uint8_t waitForKeys(uint8_t XRegistry);
 
         std::array<std::array<Pixel, 64>, 32> getPixelArray() { return pixelArray; }
+        void setPixelColor(uint8_t y, uint8_t x, uint8_t color); 
+
+        void resetPixelArray();
+
+        void printPixelArray();
         
 };

@@ -12,7 +12,7 @@ void GameScheduler::startGame()
         
         do 
             {
-                // cpu.process();
+                cpu.process();
                 gameScreenCnt++;
 
                 if (gameScreenCnt == 4)
@@ -26,7 +26,7 @@ void GameScheduler::startGame()
                 }
 
                 //continueGame = cpu.getKey() == QUIT;
-                Sleep(1000);
+                Sleep(4);
                 std::cout << "continue game : " << cpu.getContinueGame()+0 << "\n";
         } while (cpu.getContinueGame() == 1);
 

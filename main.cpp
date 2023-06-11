@@ -15,7 +15,7 @@ int main(int argc, char **argv){
 
         GameScreen gameScreen = GameScreen();
         std::cout << "a";
-        gameScreen.initialiseSDL(64, 32);
+        gameScreen.initialiseScreen(64, 32);
         std::cout << "b";
         // g.initialiseScreen();
         std::cout << "c";

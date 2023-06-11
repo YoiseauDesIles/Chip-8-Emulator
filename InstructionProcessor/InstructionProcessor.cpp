@@ -10,6 +10,19 @@
    return hexChar;
  }
 
+ uint8_t InstructionProcessor::getBit(uint8_t byte, uint8_t position)
+ {
+   uint8_t bit = (byte >> position) & 0x1;
+
+   return bit;
+ }
+
+ uint8_t InstructionProcessor::getBitReversed(uint8_t byte, uint8_t position)
+ {
+   uint8_t bit = (byte >> (7 - position)) & 0x1;
+
+   return bit;
+ }
 
 void InstructionProcessor::instr0NNN(CPU &cpu, uint16_t opcode) 
 {
@@ -19,13 +32,16 @@ void InstructionProcessor::instr0NNN(CPU &cpu, uint16_t opcode)
 void InstructionProcessor::instr00E0(CPU &cpu, uint16_t opcode) 
 {
    // Effacer l'écran
-   // TODO : graphique
+
+   std::cout << "Instuction 00E0" << "\n";
+   cpu.resetPixelArray();
+   
 }
 
 void InstructionProcessor::instr00EE(CPU &cpu, uint16_t opcode) 
 {
    std::cout << "Instuction 00EE" << "\n";
-   // Retour à partir d'un sous-fonction
+   // Retour à partir d'une sous-fonction
    
    auto stack = cpu.getStack();
    uint16_t address = stack.top();
@@ -423,6 +439,35 @@ void InstructionProcessor::instrCXNN(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrDXYN(CPU &cpu, uint16_t opcode) 
 {
+   //Dessine un sprite aux coordonnees (VX, VY).
+   //Le sprite a une largeur de 8 pixels et une hauteur N en pixels.
+   //Chaque rangee de 8 pixels est lue comme codee en binaire a partir de l'emplacement memoire I.
+   //Il ne change pas de valeur après l'execution de cette instruction.
+
+   std::cout << "Instruction DXYN " << "\n";
+   
+   uint8_t N = getHexChar(opcode, 0);
+   uint8_t Y = getHexChar(opcode, 1);
+   uint8_t X = getHexChar(opcode, 2);
+
+   uint8_t xCoord = cpu.getRegistry().getRegistry(X);
+   uint8_t yCoord = cpu.getRegistry().getRegistry(Y);
+
+   for (int i=0; i < N; i++) 
+   {
+      uint16_t I = cpu.getRegistry().getI();
+      uint16_t address = I+i;
+      uint8_t row = cpu.getMemory().read(address);
+
+      for (int pixel = 0; pixel < 8; pixel++)
+      {
+         uint8_t currPixelColor = getBitReversed(row, pixel);
+         uint8_t previousPixelColor = cpu.getPixelArray()[yCoord + i][xCoord + pixel].getColor();
+         
+         cpu.setPixelColor(yCoord + i, xCoord + pixel, currPixelColor ^ previousPixelColor);
+      } 
+      
+   }
 
 }
 
@@ -459,7 +504,7 @@ void InstructionProcessor::instrEXA1(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX07(CPU &cpu, uint16_t opcode) 
 {
-
+   //définit VX à la valeur de la temporisation.
 }
 
 void InstructionProcessor::instrFX0A(CPU &cpu, uint16_t opcode) 
@@ -484,12 +529,14 @@ void InstructionProcessor::instrFX0A(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX15(CPU &cpu, uint16_t opcode) 
 {
+   // Définit la temporisation à VX
 
 }
 
 void InstructionProcessor::instrFX18(CPU &cpu, uint16_t opcode) 
 {
-
+   //Définit la minuterie sonore à VX.
+   
 }
 
 void InstructionProcessor::instrFX1E(CPU &cpu, uint16_t opcode) 
@@ -516,7 +563,7 @@ void InstructionProcessor::instrFX1E(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX29(CPU &cpu, uint16_t opcode) 
 {
-
+   // Définit I à l'emplacement du caractère stocké dans VX. (Les caractères 0 à F sont représentés par une police 4x5)
 }
 
 void InstructionProcessor::instrFX33(CPU &cpu, uint16_t opcode) 

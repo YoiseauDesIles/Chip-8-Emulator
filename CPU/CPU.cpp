@@ -19,7 +19,7 @@ CPU::CPU()
         for (int width = 0; width < 64; width++){
 
             pixelArray[height][width].setColor(0);
-            // SDL_Rect* currRect{width*8, height*8, 8, 8};
+
             SDL_Rect currRect ;
             currRect.h = 8;
             currRect.w = 8;
@@ -41,6 +41,7 @@ CPU::~CPU()
 void CPU::initMemory()
 {
     memory.copyCartridge();
+    memory.initCharacters();
 }
 
 void CPU::initInstructionSet()
@@ -88,13 +89,6 @@ void CPU::initInstructionSet()
 
 }
 
-// void CPU::clock(Clock & clock) const
-// {
-//     clock.decreaseCycle();
-//     // Clock* clock = Clock::GetInstance();
-//     // uint8_t cycleState = clock->getCycleState();
-//     // clock->setCycleState(--cycleState);
-// }
 
 uint16_t CPU::getNextOpCode() 
 {
@@ -165,14 +159,29 @@ uint8_t CPU::waitForKeys( uint8_t XRegistry)
     controller.waitForInput(registry, keys, XRegistry);
 }
 
-// void CPU::handleClockCycles(Clock & clock)
-// {
-//     while (clock.getCycle() > 0) 
-//     {
-//         Sleep(4);
-//         clock.decreaseCycle();
-//     }
 
-//     std::cout << " Fin du cycle d'horloge, declenchement de l'instruction suivante" << "\n";
-//     process();
-// }
+void CPU::resetPixelArray()
+{
+    // Met le tableau de pixel à noir (0)
+    for (int height  = 0; height < 32; height++){
+        for (int width = 0; width < 64; width++){
+            pixelArray[height][width].setColor(0);
+        }
+    }
+}
+
+void CPU::setPixelColor(uint8_t y, uint8_t x, uint8_t color)
+{
+    pixelArray[y][x].setColor(color);
+}
+
+
+void CPU::printPixelArray()
+{
+    for (int height  = 0; height < 32; height++){
+        for (int width = 0; width < 64; width++){
+            std::cout << "PixelArray = " << pixelArray[height][width].getColor()+0 << " ";
+        }
+        std::cout << "\n";
+    }
+}
