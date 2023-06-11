@@ -12,6 +12,8 @@ set(SRCS
     Clock/Clock.cpp
     Controller/Controller.cpp
     GameScheduler/GameScheduler.cpp
+    GameScreen/GameScreen.cpp
+    Pixel/Pixel.cpp
     )
     
 set(HEADERS
@@ -24,6 +26,9 @@ set(HEADERS
     Clock/Clock.h
     Controller/Controller.h
     GameScheduler/GameScheduler.h
+    GameScreen/GameScreen.h
+    Pixel/Pixel.h
+    Utils/Constants.h
     )
 
 #set(CMAKE_BUILD_TYPE Debug)

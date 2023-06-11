@@ -14,6 +14,22 @@ CPU::CPU()
     for (auto &i : keys) 
         i = 0x00;
         
+    // Initialise le tableau de pixel à noir (0)
+    for (int height  = 0; height < 32; height++){
+        for (int width = 0; width < 64; width++){
+
+            pixelArray[height][width].setColor(0);
+            // SDL_Rect* currRect{width*8, height*8, 8, 8};
+            SDL_Rect currRect ;
+            currRect.h = 8;
+            currRect.w = 8;
+            currRect.x = width * 8;
+            currRect.y = height * 8;
+
+            pixelArray[height][width].setPosition(currRect);
+        }
+    }
+
     //TODO Initialiser le tableau de pointeur d'instructions
 }
 

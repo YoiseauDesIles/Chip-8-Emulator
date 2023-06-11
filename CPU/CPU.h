@@ -9,6 +9,8 @@
 #include "../Clock/Clock.h"
 #include "../InstructionProcessor/InstructionProcessor.h"
 #include "../Controller/Controller.h"
+#include "../Pixel/Pixel.h"
+
 
 class CPU
 {
@@ -23,6 +25,7 @@ class CPU
         typedef void (*Instruction)(CPU&, uint16_t);
         std::array<Instruction, 35> instructionSet;
         std::array<uint8_t, 16> keys;
+        std::array<std::array<Pixel, 64>, 32> pixelArray;
         Controller controller;
 
         uint8_t continueGame = 1;
@@ -63,5 +66,7 @@ class CPU
         void updateKeys();
 
         uint8_t waitForKeys(uint8_t XRegistry);
+
+        std::array<std::array<Pixel, 64>, 32> getPixelArray() { return pixelArray; }
         
 };

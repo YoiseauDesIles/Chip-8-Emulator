@@ -2,31 +2,38 @@
 #include <iostream>
 #include "CPU/CPU.h"
 #include "GameScheduler/GameScheduler.h"
+#include "GameScreen/GameScreen.h"
 #include "Controller/Controller.h"
+#include "Utils/Constants.h"
 #include <SDL.h>
+#include <cmath>
 
 enum enumTest {a = 0, b = 1};
 
 int main(int argc, char **argv){
 
 
-    //          /* Initialisation simple */
-    if (SDL_Init(SDL_INIT_VIDEO) != 0 )
-    {
-        std::cout << "Échec de l'initialisation de la SDL";
-        return -1;
-    }
+        GameScreen gameScreen = GameScreen();
+        std::cout << "a";
+        gameScreen.initialiseSDL(64, 32);
+        std::cout << "b";
+        // g.initialiseScreen();
+        std::cout << "c";
 
-        // /* Création de la fenêtre */
-        SDL_Window* pWindow = NULL;
-        pWindow = SDL_CreateWindow("Ma première application SDL2",SDL_WINDOWPOS_UNDEFINED,
-                                                                  SDL_WINDOWPOS_UNDEFINED,
-                                                                  640,
-                                                                  480,
-                                                                  SDL_WINDOW_SHOWN);
         CPU cpu = CPU();
-        GameScheduler gameScheduler = GameScheduler(cpu);
+        GameScheduler gameScheduler = GameScheduler(cpu, gameScreen);
         gameScheduler.startGame();
+
+
+
+    // if(ecran==NULL) 
+    // { 
+    //     fprintf(stderr,"Erreur lors du chargement du mode vidéo %s",SDL_GetError()); 
+    //     exit(EXIT_FAILURE); 
+    // } 
+
+
+    // carre[0]=SDL_CreateRGBSurface(SDL_HWSURFACE,DIMPIXEL,DIMPIXEL,32,0,0,0,0); //le pixel noir 
 
         // if( pWindow )
         // {
@@ -58,4 +65,5 @@ int main(int argc, char **argv){
     SDL_Quit();
     return 0;
 }
+
 

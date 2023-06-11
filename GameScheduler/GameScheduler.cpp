@@ -1,6 +1,6 @@
 #include "GameScheduler.h"
 
-GameScheduler::GameScheduler(CPU& cpu) : cpu(cpu), gameScreenCnt(0), continueGame(1)
+GameScheduler::GameScheduler(CPU& cpu, GameScreen& gameScreen) : cpu(cpu), gameScreen(gameScreen), gameScreenCnt(0), continueGame(1)
 {
     std::cout << "game scheduler initialized" << "\n";
 }
@@ -9,9 +9,10 @@ void GameScheduler::startGame()
 {
     try 
     {
+        
         do 
             {
-                cpu.process();
+                // cpu.process();
                 gameScreenCnt++;
 
                 if (gameScreenCnt == 4)
@@ -19,7 +20,7 @@ void GameScheduler::startGame()
                     std::cout << "Avant updateKeys : " << cpu.getContinueGame()+0 << "\n";
                     cpu.updateKeys();
                     std::cout << "Apres updateKays : " << cpu.getContinueGame()+0 << "\n";
-                    //gameScreen.update();
+                    gameScreen.updateScreen(cpu.getPixelArray());
                     
                     gameScreenCnt = 0;
                 }
