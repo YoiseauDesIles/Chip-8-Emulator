@@ -453,6 +453,8 @@ void InstructionProcessor::instrDXYN(CPU &cpu, uint16_t opcode)
    uint8_t xCoord = cpu.getRegistry().getRegistry(X);
    uint8_t yCoord = cpu.getRegistry().getRegistry(Y);
 
+   std::cout << "valeur du registre I pre print: " << std::hex << cpu.getRegistry().getI()+0 << "\n";
+
    for (int i=0; i < N; i++) 
    {
       uint16_t I = cpu.getRegistry().getI();
@@ -468,6 +470,8 @@ void InstructionProcessor::instrDXYN(CPU &cpu, uint16_t opcode)
       } 
       
    }
+
+   std::cout << "valeur du registre I post print: " << std::hex << cpu.getRegistry().getI()+0 << "\n";
 
 }
 
@@ -505,6 +509,13 @@ void InstructionProcessor::instrEXA1(CPU &cpu, uint16_t opcode)
 void InstructionProcessor::instrFX07(CPU &cpu, uint16_t opcode) 
 {
    //définit VX à la valeur de la temporisation.
+
+   uint8_t X = getHexChar(opcode, 2);
+   
+   cpu.getRegistry().setRegistry(X, cpu.getTemporization()); 
+
+   std::cout << "Instruction FX07 - valeur du registre V" << std::hex << X+0 <<  " : " << std::hex << cpu.getRegistry().getRegistry(X)+0 << "\n";
+
 }
 
 void InstructionProcessor::instrFX0A(CPU &cpu, uint16_t opcode) 
@@ -529,7 +540,16 @@ void InstructionProcessor::instrFX0A(CPU &cpu, uint16_t opcode)
 
 void InstructionProcessor::instrFX15(CPU &cpu, uint16_t opcode) 
 {
+
+   std::cout << "Instruction FX15 " << "\n";
    // Définit la temporisation à VX
+
+   uint8_t X = getHexChar(opcode, 2);
+
+   cpu.setTemporization(cpu.getRegistry().getRegistry(X));
+
+   std::cout << "Instruction FX15 - valeur du registre " << std::hex << X+0 << " : " << std::hex << cpu.getRegistry().getRegistry(X)+0 << "\n";
+   std::cout << "valeur de la temporisation : " << std::hex << cpu.getTemporization()+0 << "\n";
 
 }
 
@@ -564,6 +584,18 @@ void InstructionProcessor::instrFX1E(CPU &cpu, uint16_t opcode)
 void InstructionProcessor::instrFX29(CPU &cpu, uint16_t opcode) 
 {
    // Définit I à l'emplacement du caractère stocké dans VX. (Les caractères 0 à F sont représentés par une police 4x5)
+
+   std::cout << "Instruction FX29 " << "\n";
+
+   uint8_t X = getHexChar(opcode, 2);
+   
+   std::cout << "X = " << std::hex << X+0 << "\n";
+
+   std::cout << "Contenu du registre " << std::hex << X+0 << ": "  << std::hex << cpu.getRegistry().getRegistry(X)+0 << "\n";
+
+   cpu.getRegistry().setI(5*cpu.getRegistry().getRegistry(X));
+
+   std::cout << "Instruction FX29 - valeur du registre I : " << std::hex << cpu.getRegistry().getI()+0 << "\n";
 }
 
 void InstructionProcessor::instrFX33(CPU &cpu, uint16_t opcode) 

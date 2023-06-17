@@ -28,7 +28,7 @@ void Memory::copyCartridge()
     std::array<uint8_t, 4096>::iterator ramIterator = ram.begin();
     ramIterator+=0x200;
 
-    for (auto &data : cartridge.programData)
+    for (auto &data : cartridge.getProgramData())
     {
         *ramIterator = data;
         ramIterator++;

@@ -21,12 +21,14 @@ void GameScheduler::startGame()
                     cpu.updateKeys();
                     std::cout << "Apres updateKays : " << cpu.getContinueGame()+0 << "\n";
                     gameScreen.updateScreen(cpu.getPixelArray());
+                    cpu.decrementTemporization();
                     
                     gameScreenCnt = 0;
                 }
 
                 //continueGame = cpu.getKey() == QUIT;
-                Sleep(4);
+                Sleep(1);
+                // Sleep(1000);
                 std::cout << "continue game : " << cpu.getContinueGame()+0 << "\n";
         } while (cpu.getContinueGame() == 1);
 

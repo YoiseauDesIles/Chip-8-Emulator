@@ -27,6 +27,7 @@ class CPU
         std::array<uint8_t, 16> keys;
         std::array<std::array<Pixel, 64>, 32> pixelArray;
         Controller controller;
+        uint8_t temporization = 0;
 
         uint8_t continueGame = 1;
 
@@ -73,5 +74,10 @@ class CPU
         void resetPixelArray();
 
         void printPixelArray();
+
+        void decrementTemporization();
+
+        void setTemporization(uint8_t newTemporization) { temporization = newTemporization; }
+        uint8_t getTemporization() { return temporization; }
         
 };

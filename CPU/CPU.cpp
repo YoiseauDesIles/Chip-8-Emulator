@@ -185,3 +185,14 @@ void CPU::printPixelArray()
         std::cout << "\n";
     }
 }
+
+
+void CPU::decrementTemporization()
+{
+    if (temporization > 0 )
+    {
+        temporization--;
+        std::cout << "valeur de la temporization : " << std::hex <<temporization+0 << "\n";
+    }
+        
+}

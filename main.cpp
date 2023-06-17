@@ -8,7 +8,13 @@
 #include <SDL.h>
 #include <cmath>
 
+
 enum enumTest {a = 0, b = 1};
+
+const int* fun(const int a ){
+
+
+}
 
 int main(int argc, char **argv){
 
@@ -23,8 +29,7 @@ int main(int argc, char **argv){
         CPU cpu = CPU();
         GameScheduler gameScheduler = GameScheduler(cpu, gameScreen);
         gameScheduler.startGame();
-
-
+       
 
     // if(ecran==NULL) 
     // { 
