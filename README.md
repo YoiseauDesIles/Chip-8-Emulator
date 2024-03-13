@@ -1,4 +1,4 @@
-# emulateur-nul
+# emulateur Chip 8
 
 Ce projet est une entrée en matière dans le developpement d'un émulateur pour une console de jeu vidéo.
 
