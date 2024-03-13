@@ -3,9 +3,11 @@
 Ce projet est une entrée en matière dans le developpement d'un émulateur pour une console de jeu vidéo.
 
 Capture d'écran du jeu Space Invaders
+
 ![cover](https://github.com/YoiseauDesIles/Chip-8-Emulator/assets/122680880/47a1622e-bcd9-4968-9f82-44565246a721)
 
 Capture d'écran du jeu Puissance 4
+
 ![connect4](https://github.com/YoiseauDesIles/Chip-8-Emulator/assets/122680880/3de6630f-ba0b-41c3-a828-ff28e163da29)
 
 
