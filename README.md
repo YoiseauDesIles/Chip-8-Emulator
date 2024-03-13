@@ -1,5 +1,21 @@
 # emulateur-nul
 
+Ce projet est une entrée en matière dans le developpement d'un émulateur pour une console de jeu vidéo.
+
+Capture d'écran du jeu Space Invaders
+![cover](https://github.com/YoiseauDesIles/Chip-8-Emulator/assets/122680880/47a1622e-bcd9-4968-9f82-44565246a721)
+
+Capture d'écran du jeu Puissance 4
+![connect4](https://github.com/YoiseauDesIles/Chip-8-Emulator/assets/122680880/3de6630f-ba0b-41c3-a828-ff28e163da29)
+
+
+Voici comment jouer à des jeux sur la console : 
+ - La "manette" de la Chip8 se compose de 16 touches : 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, A, B, C, D, E, F
+ - Ces touches sont mappées sur le pavé numérique du clavier pour les touches 0 à 9, puis le reste correspond à sa propre touche du clavier (A, B, C, D, E, F)
+ - L'émulateur charge des roms situées dans le dossier Roms en selectionnant le nom de la rom dans le fichier Cartrige.cpp
+
+
+
 Pour faire fonctionner SDL pour le projet (Windows) : 
 
  - Creer la variable d'environnement CMAKE_PREFIX_PATH et y mettre le chemin d'accès vers la librairie SDL2_VS
